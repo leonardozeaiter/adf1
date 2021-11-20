@@ -1,0 +1,23 @@
+{
+	"name": "Test1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "v1",
+					"value": "1"
+				}
+			}
+		],
+		"variables": {
+			"v1": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
