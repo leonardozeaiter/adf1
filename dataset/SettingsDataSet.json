@@ -1,0 +1,38 @@
+{
+	"name": "SettingsDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SettingsLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SourceDb",
+				"type": "varchar"
+			},
+			{
+				"name": "SourceTable",
+				"type": "varchar"
+			},
+			{
+				"name": "TargetDb",
+				"type": "varchar"
+			},
+			{
+				"name": "TargetTable",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Settings"
+		}
+	}
+}
