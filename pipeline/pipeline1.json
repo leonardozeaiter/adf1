@@ -57,8 +57,51 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"enableStaging": false
-							}
+								"source": {
+									"type": "AzureSqlSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "AzureSqlSink",
+									"tableOption": {
+										"value": "@{item().TargetTable}",
+										"type": "Expression"
+									},
+									"disableMetricsCollection": false
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataSet",
+									"type": "DatasetReference",
+									"parameters": {
+										"TableName": {
+											"value": "@item().SourceTable",
+											"type": "Expression"
+										},
+										"DataSetDbName": {
+											"value": "@item().SourceDb",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationDataSet",
+									"type": "DatasetReference"
+								}
+							]
 						}
 					]
 				}
