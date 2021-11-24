@@ -1,0 +1,69 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lkp Source Tables",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SettingsDataSet",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "For Each Table in Source",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lkp Source Tables",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lkp Source Tables').output.value",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy Source Table To Destination",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"enableStaging": false
+							}
+						}
+					]
+				}
+			}
+		],
+		"annotations": []
+	}
+}
