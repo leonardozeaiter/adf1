@@ -71,7 +71,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "Select * From @item().SourceTable Where Id=1",
+										"value": "@Select * From item().SourceTable",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
