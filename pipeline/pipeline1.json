@@ -119,6 +119,12 @@
 				"type": "string"
 			}
 		},
+		"variables": {
+			"v1": {
+				"type": "String",
+				"defaultValue": "c"
+			}
+		},
 		"annotations": []
 	}
 }
