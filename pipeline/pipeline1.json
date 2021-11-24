@@ -110,6 +110,15 @@
 				}
 			}
 		],
+		"parameters": {
+			"SettingsDBName": {
+				"type": "string",
+				"defaultValue": "Settings"
+			},
+			"SettingsTablesToCopy": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
