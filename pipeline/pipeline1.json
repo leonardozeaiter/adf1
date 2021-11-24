@@ -59,19 +59,11 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"sqlReaderQuery": {
-										"value": "Select * From @item().SourceTable",
-										"type": "Expression"
-									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
 								"sink": {
 									"type": "AzureSqlSink",
-									"tableOption": {
-										"value": "@{item().TargetTable}",
-										"type": "Expression"
-									},
 									"disableMetricsCollection": false
 								},
 								"enableStaging": false,
@@ -103,7 +95,13 @@
 							"outputs": [
 								{
 									"referenceName": "DestinationDataSet",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"TargetTable": {
+											"value": "@item().TargetTable",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
