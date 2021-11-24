@@ -17,7 +17,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from @variables('SettinsCopyTable')",
+						"sqlReaderQuery": {
+							"value": "Select * From @{variables('SettinsCopyTable')}",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
