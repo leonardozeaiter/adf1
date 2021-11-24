@@ -17,6 +17,20 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderStoredProcedureName": "SPGetTablesToCopy",
+						"storedProcedureParameters": {
+							"MaxId": {
+								"type": "Int32",
+								"value": "1"
+							},
+							"TableName": {
+								"type": "String",
+								"value": {
+									"value": "@variables('SettinsCopyTable')",
+									"type": "Expression"
+								}
+							}
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
