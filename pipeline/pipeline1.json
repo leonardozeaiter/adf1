@@ -23,7 +23,8 @@
 					"dataset": {
 						"referenceName": "SettingsDataSet",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
