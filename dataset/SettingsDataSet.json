@@ -3,7 +3,21 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SettingsLinkedService",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"SettingsDbName": {
+					"value": "@dataset().DataSetSettingsDbName",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"DataSetSettingsDbName": {
+				"type": "string"
+			},
+			"SettingsCopiesTable": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
@@ -32,7 +46,10 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Settings"
+			"table": {
+				"value": "@dataset().SettingsCopiesTable",
+				"type": "Expression"
+			}
 		}
 	}
 }

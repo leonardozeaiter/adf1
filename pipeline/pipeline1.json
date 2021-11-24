@@ -22,7 +22,17 @@
 					},
 					"dataset": {
 						"referenceName": "SettingsDataSet",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"DataSetSettingsDbName": {
+								"value": "@variables('SettingDbName')",
+								"type": "Expression"
+							},
+							"SettingsCopiesTable": {
+								"value": "@variables('SettinsCopyTable')",
+								"type": "Expression"
+							}
+						}
 					},
 					"firstRowOnly": false
 				}
@@ -110,6 +120,16 @@
 				}
 			}
 		],
+		"variables": {
+			"SettingDbName": {
+				"type": "String",
+				"defaultValue": "SettingsDb"
+			},
+			"SettinsCopyTable": {
+				"type": "String",
+				"defaultValue": "Settings"
+			}
+		},
 		"annotations": []
 	}
 }
