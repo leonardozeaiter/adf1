@@ -2,11 +2,16 @@
 	"name": "SettingsLinkedService",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"SettingsDbName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=leonardozeaiterdbserver1.database.windows.net;initial catalog=SettingsDB;user id=Leonardo",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDMzNzJFMkVCLTAwNjQtNEVDMS05MUIxLUIwQUU5RUIwNDU5Nl8wOTM4MTdjZS0yOThiLTQwNTMtYWFkYi00ZDAwZDZkZWE2NjQiDQp9"
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=leonardozeaiterdbserver1.database.windows.net;initial catalog=@{linkedService().SettingsDbName};user id=Leonardo",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDMzNzJFMkVCLTAwNjQtNEVDMS05MUIxLUIwQUU5RUIwNDU5Nl84MDE0YjBjMS00NDY0LTQ0ZDEtYmI5NS1hMTVlZTJiYzk3ZjUiDQp9"
 		}
 	}
 }
