@@ -128,11 +128,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"TriggerStartTime": {
-				"type": "string"
-			}
-		},
 		"variables": {
 			"SettingDbName": {
 				"type": "String",
@@ -141,9 +136,6 @@
 			"SettinsCopyTable": {
 				"type": "String",
 				"defaultValue": "Settings"
-			},
-			"V1": {
-				"type": "String"
 			}
 		},
 		"annotations": []
